@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:19:31 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 19:23:43 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:25:53 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	pb(t_data *data)
 		i++;
 	}
 	data->a_len--;
-	printf("pb\n");
+	ft_printf("pb\n");
 }

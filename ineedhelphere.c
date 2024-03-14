@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 17:20:06 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 19:18:18 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:48:27 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	saul_goodman(char *str)
 {
 	if (!is_valid_number(str))
 	{
-		ft_printf("Bad fucking number bitch\n");
+		ft_printf("Error");
 		return (0);
 	}
 	if (ft_atol(str) > INT_MAX || ft_atol(str) < INT_MIN)
 	{
-		ft_printf("Too fat fucking number bitch\n");
+		ft_printf("Error");
 		return (0);
 	}
 	return (1);

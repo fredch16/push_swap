@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:30:43 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 21:23:19 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:48:57 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	create_stacks(t_data *data)
 	{
 		if (exist_in_array(data, data->stack_a, ft_atoi(data->input_list[i])))
 		{
-			ft_printf("same number twice bitch\n");
+			ft_printf("Error");
 			free(data->stack_a);
 			free(data->stack_b);
 			free(data->input_list);
@@ -43,7 +43,7 @@ void	args_to_input(t_data *data, int argc, char **argv)
 	i = 0;
 	if (argc < 2)
 	{
-		ft_printf("Error | Low args");
+		ft_printf("Error");
 		exit(EXIT_FAILURE);
 	}
 	if (argc == 2)
@@ -82,7 +82,6 @@ void	sort_all(t_data *data)
 	}
 	if (data->a_len == 3 && !stack_sorted(data))
 	{
-		ft_printf("Entering 3 sort \n");
 		sort_three(data);
 	}
 	else

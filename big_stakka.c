@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:30:43 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 19:28:00 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:23:19 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,43 +61,43 @@ void	args_to_input(t_data *data, int argc, char **argv)
 	}
 }
 
+void	parse_and_build(t_data *data, int argc, char **argv)
+{
+	args_to_input(data, argc, argv);
+	data->arr_len = 0;
+	while (data->input_list[data->arr_len] != NULL)
+	{
+		if (!saul_goodman(data->input_list[data->arr_len]))
+			exit(EXIT_FAILURE);
+		data->arr_len++;
+	}
+	create_stacks(data);
+}
+
+void	sort_all(t_data *data)
+{
+	if (data->a_len == 2 && !stack_sorted(data))
+	{
+		sa(data, 1);
+	}
+	if (data->a_len == 3 && !stack_sorted(data))
+	{
+		ft_printf("Entering 3 sort \n");
+		sort_three(data);
+	}
+	else
+		powersort(data);
+	free(data->stack_a);
+	free(data->stack_b);
+
+}
 int	main(int argc, char *argv[])
 {
 	t_data	data;
 
 	data.a_len = 0;
 	data.b_len = 0;
-	args_to_input(&data, argc, argv);
-	data.arr_len = 0;
-	while (data.input_list[data.arr_len] != NULL)
-	{
-		if (!saul_goodman(data.input_list[data.arr_len]))
-			exit(EXIT_FAILURE);
-		ft_printf("Value %d: %s\n", data.arr_len,
-			data.input_list[data.arr_len]);
-		data.arr_len++;
-	}
-	create_stacks(&data);
-	if (data.a_len == 2 && !stack_sorted(&data))
-	{
-		sa(&data, 1);
-		free(data.stack_a);
-		free(data.stack_b);
-	}
-	if (data.a_len == 3 && !stack_sorted(&data))
-	{
-		ft_printf("Entering 3 sort \n");
-		sort_three(&data);
-		free(data.stack_a);
-		free(data.stack_b);
-	}
-	else
-	{
-		powersort(&data);
-		printstacka(&data);
-		printstackb(&data);
-		free(data.stack_a);
-		free(data.stack_b);
-	}
+	parse_and_build(&data, argc, argv);
+	sort_all(&data);
 	return (0);
 }

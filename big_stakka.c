@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:30:43 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 21:50:14 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:51:15 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	create_stacks(t_data *data)
 	{
 		if (exist_in_array(data, data->stack_a, ft_atoi(data->input_list[i])))
 		{
-			ft_printf("Error");
+			ft_printf("Error\n");
 			free(data->stack_a);
 			free(data->stack_b);
 			free(data->input_list);

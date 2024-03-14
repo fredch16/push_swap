@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:30:43 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 21:51:15 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:04:43 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	args_to_input(t_data *data, int argc, char **argv)
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	if (argc == 2)
-		data->input_list = ft_split(argv[1], ' ');
+		exit(EXIT_SUCCESS);
 	if (argc > 2)
 	{
 		data->input_list = (char **)malloc(sizeof(char *) * (argc));
@@ -65,7 +65,10 @@ void	parse_and_build(t_data *data, int argc, char **argv)
 	while (data->input_list[data->arr_len] != NULL)
 	{
 		if (!saul_goodman(data->input_list[data->arr_len]))
+		{
+			free(data->input_list);
 			exit(EXIT_FAILURE);
+		}
 		data->arr_len++;
 	}
 	create_stacks(data);

@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:30:43 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 22:20:04 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:55:21 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,24 @@ void	args_to_input(t_data *data, int argc, char **argv)
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	if (argc == 2)
-		exit(EXIT_SUCCESS);
+	{
+		i = EXIT_SUCCESS;
+		data->input_list = (char **)malloc(sizeof(char *));
+		data->input_list[0] = argv[1];
+		if (!saul_goodman(data->input_list[0]))
+			i = EXIT_FAILURE;
+		free(data->input_list);
+		exit(i);
+	}
 	if (argc > 2)
 	{
-		data->input_list = (char **)malloc(sizeof(char *) * (argc));
+		data->input_list = (char **)ft_calloc(sizeof(char *), (argc));
 		i = 0;
 		while (argv[i + 1])
 		{
 			data->input_list[i] = argv[i + 1];
 			i++;
 		}
-		data->input_list[i] = NULL;
 	}
 }
 
@@ -88,8 +95,8 @@ void	sort_all(t_data *data)
 		powersort(data);
 	free(data->stack_a);
 	free(data->stack_b);
-
 }
+
 int	main(int argc, char *argv[])
 {
 	t_data	data;

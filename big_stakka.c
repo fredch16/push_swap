@@ -6,7 +6,7 @@
 /*   By: fcharbon <fcharbon@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:30:43 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/03/14 21:48:57 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:50:14 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ void	args_to_input(t_data *data, int argc, char **argv)
 
 	i = 0;
 	if (argc < 2)
-	{
-		ft_printf("Error");
 		exit(EXIT_FAILURE);
-	}
 	if (argc == 2)
 		data->input_list = ft_split(argv[1], ' ');
 	if (argc > 2)
